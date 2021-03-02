@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 animate_animated" *ngFor="let block of blocksDefaults" data-aos="fade-up">
+      <div class="card-header border-0">
+        <h4 class="card-title"><span class="icon-box"></span><i class="icofont-clock-time"></i> {{block.time}}</h4>
+      </div>
+      <div class="card-body">
+        <p [ngClass]="block.available ? 'text-success':'text-danger'">{{block.available ? 'Avalable': 'Not-Available'}}</p>
+        <p class="card-text"><button class="btn btn-primary btn-block" (click)="selectBlock(block)" [disabled]="!block.available">Select</button></p>
+      </div>
+      <hr class="bg-dark">
+    </div>
+  </div>
+</div>

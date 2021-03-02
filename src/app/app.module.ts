@@ -10,10 +10,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { VerificationComponent } from './pages/verification/verification.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VerificationComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -22,9 +26,9 @@ import { CoreModule } from './core/core.module';
     GalleryModule,
     LightboxModule,
     CountUpModule,
+    CoreModule,
     SharedModule,
     AppRoutingModule,
-    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
