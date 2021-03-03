@@ -6,7 +6,7 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DataService } from 'src/app/core/services/data.service';
 import { ConsultationData } from 'src/app/interfaces/consultation.interface';
-import { COUNTER, PRODUCTS, SERVICES } from 'src/app/shared/global.model';
+import { COUNTER, PRODUCTS, SERVICES, TEAM } from 'src/app/shared/global.model';
 
 @Component({
   selector: 'mtp-home',
@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   products = PRODUCTS;
   services = SERVICES;
   counter = COUNTER;
+  team = TEAM;
   contactModel = {};
   consultation: ConsultationData = {
     name: '',
@@ -86,7 +87,7 @@ export class HomeComponent implements OnInit {
   formatDate(date) {
     if (date) {
       console.log('date to format',date)
-      this.consultation.date = `${date.getMonth() + 1}-${date.getDate()}`
+      this.consultation.date = `${date.getMonth() + 1}/${date.getDate()}`
     }
   }
 

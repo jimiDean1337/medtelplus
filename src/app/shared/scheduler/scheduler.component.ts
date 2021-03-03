@@ -38,15 +38,19 @@ export class SchedulerComponent implements OnInit {
     this.dataService.getAllConsultations()
       .pipe(
         map((consultations: ConsultationData[]) => {
-          consultations.map((appt: ConsultationData) => {
-            if (appt.date === date) {
-              this.blocksDefaults.map(block => {
-                if (block.id === appt.block) {
-                  block.available = false;
-                }
-              })
-            }
-          })
+          if (consultations) {
+            consultations.map((appt: ConsultationData) => {
+              if (appt.date === date) {
+                this.blocksDefaults.map(block => {
+                  if (block.id === appt.block) {
+                    block.available = false;
+                  } else {
+                    block.available = true;
+                  }
+                })
+              }
+            })
+          }
         })
       ).subscribe();
     //   .subscribe((res: ConsultationData[]) => {
