@@ -128,7 +128,7 @@ export const TEAM = [
     name: 'Kevin Szkolnik',
     title: 'Co-Founder',
     bio: {
-      short: 'Kevin is a disabled veteran who servied active duty in the US Navy. His passion for this work comes from experience when dealing with Veterans Affairs.',
+      short: 'Kevin is a disabled veteran who served active duty in the US Navy. His passion for this work comes from experience when dealing with Veterans Affairs. He has more thatn 20 years in sales and customer service experience.',
       long: '',
     },
     socialLinks: {
@@ -138,4 +138,157 @@ export const TEAM = [
       linkedin: 'https://www.linkedin.com/in/kevin-szkolnik-66222167/'
     }
   },
+];
+
+export const FAQ = [
+  {
+    id: 0,
+    title: 'Does Medtelplus hold title on the products they sell?',
+    text: `For the moment we do not hold title of product, however, we have partnered with many manufacturers and distributors that own the product outright, who work with us to get our customers the best products at the best price.`
+  },
+  {
+    id: 1,
+    title: 'Where can I get access to the Medtelplus telemedicine platform?',
+    text: `Due to the pandemic, all development of our telemedicine platform has been put on hold temporarily. We have will resume work to complete this as soon as possible.`
+  },
+  {
+    id: 2,
+    title: 'Does Medtelplus have a minimum quantity requirement on any orders placed?',
+    text: `This all depends on the product needed. Most of our PPE products have an order minimum, and this is on a case-by-case basis.`
+  },
+  {
+    id: 3,
+    title: 'Does Medtelplus sell the COVID-19 vaccine?',
+    text: `Yes, we do. However, we can only sell the approved vaccines to authorized buyers given the demand to avoid buyers generating surplus, and to prioritize official vaccination programs.`
+  },
+  {
+    id: 4,
+    title: 'Did Medtelplus start only because of the pandemic?',
+    text: `No. Medtelplus is a division of Global Technology Services LLC, which was founded several years ago. Medtelplus turned our focus from other products and services in the medical and healthcare industry to products and services in high demand due to the pandemic.`
+  },
+];
+
+export interface GalleryItem {
+  title?: string;
+  src?: string;
+  link?: string;
+}
+
+export const GALLERYITEMS: GalleryItem[] = [
+  {
+    title: '',
+    src: 'assets/img/gallery/gallery-1.jpg'
+  },
+  {
+    title: '',
+    src: 'assets/img/gallery/gallery-2.jpg'
+  },
+  {
+    title: '',
+    src: 'assets/img/gallery/gallery-3.jpg'
+  },
+  {
+    title: '',
+    src: 'assets/img/gallery/gallery-4.jpg'
+  },
+  {
+    title: '',
+    src: 'assets/img/gallery/gallery-5.jpg'
+  },
+  {
+    title: '',
+    src: 'assets/img/gallery/gallery-6.jpg'
+  },
+  {
+    title: '',
+    src: 'assets/img/gallery/gallery-7.jpg'
+  },
+  {
+    title: '',
+    src: 'assets/img/gallery/gallery-8.jpg'
+  }
+]
+
+export interface FeaturedItemDetails {
+  [name: string]: any;
+}
+
+export interface FeaturedItem {
+  itemType?: string;
+  title?: string;
+  quantity?: {text?: string, amount?: string, units?: string};
+  price?: number;
+  details?: string;
+  callToAction?: string;
+  link?: string;
+  imgSrc?: string;
+  moreDetails?: FeaturedItemDetails;
+};
+
+export const FEATURED: FeaturedItem[] = [
+  {
+    itemType: 'gloves',
+    title: `Nitrile Powder-Free Examination Gloves / Blue`,
+    quantity: {
+      text: `250K 100ct boxes`,
+      amount: `250K`,
+      units: '100 count boxes'
+    },
+    price: 13.50,
+    details: `Located in Los Angeles, California. These nitrile gloves are on the ground (OTG) and will be replenished every week. We are direct to seller, and these gloves will be going fast, so act now!`,
+    callToAction: `Get details`,
+    link: `crd-lite`,
+    imgSrc: `assets/img/products/nitrile_gloves_w_600,h_600.jpg`,
+    moreDetails: {
+      attributesWithIcon: [
+        {icon: 'icofont-garbage', text:'Single Use'},
+        {icon: 'icofont-hand-power', text:'Ambidextrious'},
+        {icon: 'icofont-check', text:'FDA 510K'},
+        {icon: 'icofont-not-allowed', text:'Latex Free'}
+      ],
+      text: `Along with the durability and strength of nitrile, their ambidextrous design with straight,
+textured fingertips and molded cuff ensure a sturdy, comfortable product. Combines safety and
+tactile sensitivity along with acid and alkali resistance, oil resistance, and bacteria resistance.
+These gloves are made from durable nitrile-butadiene rubber using no plasticizers, esters,
+silicone oil, or powder`,
+      specs: [
+        { name: 'Length', value: `9" (240 MM)` },
+        { name: 'Material', value: `Nitrile-Butadiene` },
+        { name: 'Thickness', value: `>4mil` },
+        { name: 'Color', value: `Blue` },
+        {name: 'Packing', value: `100 per box`},
+      ],
+      screenshots: [
+        {
+          fileName: `CRD-LITE_NITRILE_GLOVES.jpg`,
+          thumbnail: 'assets/img/featured/crd-lite_nitrile_powderfree_examination_gloves.jpg',
+          src: 'assets/img/featured/crd-lite_nitrile_powderfree_examination_gloves.jpg',
+          alt: 'Image of details document PDF',
+        }
+      ]
+    }
+  },
+  {
+    itemType: 'masks',
+    title: `N95 Face Mask w/o Respirator`,
+    quantity: {
+      text: `1.7M Individual Masks`,
+      amount: `1.7M`,
+      units: 'Masks'
+    },
+    price: 1.85,
+    details: `Located in Florida. These masks are on the ground (OTG) and come with proof of life video if required. We are direct to seller, and these will be going fast, so act now!`,
+    callToAction: `Get details`,
+    link: `kn95`,
+    imgSrc: `assets/img/products/kn95_mask_w_600,h_600.jpg`,
+    moreDetails: {
+      attributesWithIcon: [
+        { icon: 'icofont-garbage', text: 'Single Use' },
+        { icon: 'icofont-check', text: 'FDA 510K' },
+      ],
+      text: ``,
+      specs: [],
+      screenshots: []
+    }
+  }
 ]

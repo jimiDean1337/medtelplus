@@ -9,29 +9,37 @@ export class DataService {
   contactsRef: AngularFirestoreCollection<any>;
   subscribersRef: AngularFirestoreCollection<any>;
   consultationsRef: AngularFirestoreCollection<any>;
+  featuredItemsRef: AngularFirestoreCollection<any>;
 
   constructor(private afs: AngularFirestore) {
     this.contactsRef = afs.collection('contacts');
     this.subscribersRef = afs.collection('subscribers');
     this.consultationsRef = afs.collection('consultations');
+    this.featuredItemsRef = afs.collection('featured');
   }
 
   addContact(data: any) {
-    console.log("DataService ~ addContact ~ data", data)
-    this.contactsRef.add(data);
+    return this.contactsRef.add(data);
   }
 
   addSubscriber(data: any) {
-    console.log("DataService ~ addSubscriber ~ data", data)
-    this.subscribersRef.add(data);
+    return this.subscribersRef.add(data);
   }
 
   addConsultation(data: any) {
-    this.consultationsRef.add(data);
+    return this.consultationsRef.add(data);
   }
 
   getAllConsultations() {
     return this.consultationsRef.valueChanges();
+  }
+
+  getAllFeaturedItems() {
+    return this.featuredItemsRef.valueChanges();
+  }
+
+  verifyUser(type: 'consultaion' | string, id: string) {
+    return this.consultationsRef.doc(id).update({verified: true})
   }
 
 

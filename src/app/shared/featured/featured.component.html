@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let item of featuredItemsList$ | async; let i = index;">
+      <div class="card">
+        <img class="card-img-top" [src]="item.imgSrc" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title"><a [routerLink]="item.link" title="View Product">{{item.title}}</a></h4>
+          <p class="card-text">{{item.details}}</p>
+          <div class="row">
+            <div class="col">
+              <p class="badge badge-info">{{item.price | currency}}</p>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-primary btn-block" (click)="openDetailsModal(extraContent, item, {class: 'xl-modal featured-modal'})">More details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #extraContent>
+  <div class="modal-header">
+    <h4 class="modal-title">{{selectedItem?.quantity?.text}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let attr of selectedItem.moreDetails.attributesWithIcon">
+        {{attr?.text}}
+        <span class="icon-box"><i style="font-size: 2rem;" class="text-primary" [ngClass]="attr.icon"></i></span>
+      </li>
+    </ul>
+    <div class="list-group" [hidden]="!selectedItem.moreDetails.specs">
+      <li class="list-group-item text-primary d-flex justify-content-between align-items-center" *ngFor="let spec of selectedItem.moreDetails.specs"><b>{{spec?.name}}</b> <span>{{spec?.value}}</span></li>
+    </div>
+    <div class="d-flex" [hidden]="!selectedItem.moreDetails.screenshots">
+      <a class="col" *ngFor="let item of selectedItem.moreDetails.screenshots" [download]="item.fileName" [href]="item.src">
+        <img [width]="200" [src]="item.src" [alt]="item.alt" class="thumbnail">
+      </a>
+    </div>
+    <p class="p-3">{{selectedItem?.moreDetails?.text}}</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#consultation" class="btn btn-primary btn-rounded">Free Consultation</a>
+    <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
+  </div>
+</ng-template>

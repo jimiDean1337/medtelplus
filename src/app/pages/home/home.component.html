@@ -1,646 +1,584 @@
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex align-items-center">
-  <div class="container">
-    <h1 data-aos="fade-up">Welcome to <b>medtelplus</b></h1>
-    <h2>Supplying the Frontline in the battle against COVID-19</h2>
-    <a href="#about" class="btn-get-started scrollto">Get Started</a>
+<!-- ======= Top Bar ======= -->
+<div id="top" class="d-none d-lg-flex align-items-center">
+  <div class="container d-flex">
+    <div class="contact-info mr-auto">
+      <i class="icofont-envelope"></i><a href="mailto:contact@example.com"> info@medtelplus.com</a>
+      <i class="icofont-phone"></i> 740-405-1633 <span class="text-primary">|</span> 740-405-1586
+      <i class="icofont-google-map"></i> 3029 Travelers Palm Drive,
+      FL
+    </div>
+    <div class="social-links">
+      <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+      <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+      <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+      <a href="#" class="skype"><i class="icofont-skype"></i></a>
+      <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+    </div>
   </div>
-</section><!-- End Hero -->
+</div>
 
+<!-- ======= Header ======= -->
+<header #header id="header" class="animated" data-aos="header-scrolled" data-aos-offset="1200" data-aos-once="false">
+  <div class="container d-flex align-items-center">
+    <h1 class="logo" (click)="goToTop()"><a href="#top"><img src="assets/img/logo_full_new_short.png" width="160" alt=""></a></h1>
 
-<!-- ======= Main Content ======= -->
-<main id="main">
+    <nav class="nav-menu d-none d-lg-block ml-lg-auto mr-lg-3">
+      <ul #navMenu>
+        <li class="nav-menu-item active"><a href="#home">Home</a></li>
+        <li class="nav-menu-item" *ngFor="let link of navLinks; let i = index;"><a [href]="'#' + link.link"
+            data-aos="fade-down" [style.transition-delay]="i * 125 + 'ms'">{{link.name}}</a></li>
+      </ul>
 
-  <!-- ======= Why Us Section ======= -->
-  <section id="why-us" class="why-us">
+    </nav><!-- .nav-menu -->
+
+    <!-- Consultation link button -->
+    <a href="#consultation" class="d-none d-lg-block consultation-btn scrollto">Free Quote</a>
+
+    <!-- Mobile nav toggle button -->
+    <button type="button" [ngClass]="showMobileNav ? 'is-active':''"
+      class="hamburger hamburger--collapse d-lg-none mobile-nav-toggle" (click)="toggleMobileNav()">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+  </div>
+
+</header><!-- End Header -->
+
+<!-- Header Alerts -->
+<alert type="danger" class="noti-alert">
+  <div class="d-flex justify-content-center" data-aos="fade-left" data-aos-delay="550">
+    <div><strong>COVID-19 Crisis Response</strong> Expidited delivery available. <small class="text-mute">*Subject to
+        terms of service</small></div>
+    <a class="ml-4 btn btn-primary btn-sm" href="#about">Learn more <span class="icon-box"><i
+          class="bx bxs-info-circle"></i></span></a>
+  </div>
+</alert>
+
+<!-- Main Content -->
+<main class="main" id="main">
+
+  <!-- ======= Hero Section ======= -->
+  <section id="home" class="section d-flex align-items-center">
     <div class="container">
+      <h1 data-aos="fade-up" data-aos-delay="750">Welcome to <b>medtelplus</b></h1>
+      <h2 data-aos="fade-left" data-aos-delay="950">Supplying the Frontline in the battle against COVID-19</h2>
+      <span data-aos="fade-up" data-aos-delay="1150">
+        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+      </span>
+    </div>
+  </section><!-- End Hero -->
 
-      <div class="row">
-        <div class="col-lg-4 d-flex align-items-stretch">
-          <div class="content">
-            <h3>Why Choose Medtelplus?</h3>
-            <p>
-              We provide access to high-quality medical supplies through a reliable supply chain, enabling frontline
-              medical and essential workers to continue their critical mission: <strong>Overcoming the
-                pandemic.</strong>
-            </p>
-            <div class="text-center">
-              <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="50">
+            <div class="content">
+              <h3>Why Choose Medtelplus?</h3>
+              <p>
+                We provide access to high-quality medical supplies through a reliable supply chain, enabling frontline
+                medical and essential workers to continue their critical mission: <strong>Overcoming the
+                  pandemic.</strong>
+              </p>
+              <div class="text-center">
+                <a href="#consultation" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="150">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-target-lock"></i>
+                    <h4>Direct to source</h4>
+                    <p>Our supplier network provides our customers with dozens of reliable PPE supply chains, including
+                      manufacturers and authorized distributors.</p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="250">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-world"></i>
+                    <h4>Around the world</h4>
+                    <p>Ship by air, land or sea. Fast, reliable and safe. Inspection of products done by SGS, the world's
+                      leading inspection, verification, testing and certification company.</p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="350">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-badge-check"></i>
+                    <h4>Medical and PPE</h4>
+                    <p>Find the highest quality PPE (personal protective equipment), meeting or exceeding specifications
+                      of nearly all available products on the market today.</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="section about">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch">
+            <button class="play-btn mb-4" (click)="openLightbox()"></button>
+          </div>
+
+          <div
+            class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+            <h3>COVID-19 Crisis Response and Premium Medical Supply Solutions</h3>
+            <p>The global coronavirus outbreak has tested people, industries, governments and supply chains unlike any
+              crisis since
+              World War II. Manufacturers and suppliers of personal protective equipment (PPE) have been working overtime
+              to increase
+              production in response to unprecedented international demand.</p>
+
+            <div class="icon-box" data-aos="fade-up">
+              <div class="icon"><i class="bx bx-clinic"></i></div>
+              <h4 class="title"><a href="">Priority Customers</a></h4>
+              <p class="description">We offer wholesale prices to hospitals and clinics purchasing the desperately needed
+                medical supplies.</p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up">
+              <div class="icon"><i class="bx bxs-truck"></i></div>
+              <h4 class="title"><a href="">Logistics</a></h4>
+              <p class="description">Delivery is always included in final pricing, with many options to choose from. We
+                can handle it all.</p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up">
+              <div class="icon"><i class="bx bx-rocket"></i></div>
+              <h4 class="title"><a href="">Expedited Service</a></h4>
+              <p class="description">Our streamlined procedures save time, and dispatch your products accurately.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6" *ngFor="let count of counter; let i = index;">
+            <div class="count-box" [style.transition-delay]="i * 100 + 'ms'" data-aos="fade-up">
+              <i [ngClass]="'icofont-' + count.icon"></i>
+              <span [countUp]="count.countUp" [options]="countUpOptions"></span>
+              <p>{{count.title}}</p>
             </div>
           </div>
         </div>
-        <div class="col-lg-8 d-flex align-items-stretch">
-          <div class="icon-boxes d-flex flex-column justify-content-center">
-            <div class="row">
-              <div class="col-xl-4 d-flex align-items-stretch">
-                <div class="icon-box mt-4 mt-xl-0">
-                  <i class="bx bx-target-lock"></i>
-                  <h4>Direct to source</h4>
-                  <p>Our supplier network provides our customers with dozens of reliable PPE supply chains, including
-                    manufacturers and authorized distributors.</p>
-                </div>
-              </div>
-              <div class="col-xl-4 d-flex align-items-stretch">
-                <div class="icon-box mt-4 mt-xl-0">
-                  <i class="bx bx-world"></i>
-                  <h4>Around the world</h4>
-                  <p>Ship by air, land or sea. Fast, reliable and safe. Inspection of products done by SGS, the world's
-                    leading inspection, verification, testing and certification company.</p>
-                </div>
-              </div>
-              <div class="col-xl-4 d-flex align-items-stretch">
-                <div class="icon-box mt-4 mt-xl-0">
-                  <i class="bx bx-badge-check"></i>
-                  <h4>Medical and PPE</h4>
-                  <p>Find the highest quality PPE (personal protective equipment), meeting or exceeding specifications
-                    of nearly all available products on the market today.</p>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="section services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>Medical Supply is something we have focused on since the pandemic began. However, we provide many other
+            services in the medical and healthcare industries.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" *ngFor="let service of services; let i = index;" [style.transition-delay]="i * 100 + 'ms'" data-aos="fade-up">
+            <div class="icon-box">
+              <div class="icon"><i [class]="'icofont-' + service.icon"></i></div>
+              <h4><a href="">{{service.title}}</a></h4>
+              <p>{{service.description}}</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Consultation Section ======= -->
+    <section id="consultation" class="section consultation section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Free Consultation</h2>
+          <p>Request a free consultation by phone or video conference with our dedicated sales team to discuss your needs
+            and the advantages in using our products and services. Fill out the form below, and be sure to select a
+            preferred time of day for the consultation. <small class="font-italic">**Consultation times are first come
+              first serve, and subject to change.**</small></p>
+        </div>
+
+        <form #consultationForm="ngForm" name="consultationForm" role="form" class="request-form" data-aos="fade-up">
+          <div class="form-row">
+            <div class="col-md-4 form-group">
+              <input [(ngModel)]="consultation.name" #name="ngModel" type="text" name="name" class="form-control"
+                id="userName" placeholder="Your Name" minlength="4" required>
+              <div class="validate" *ngIf="name.dirty && name.invalid">Please enter at least 4 chars</div>
+            </div>
+            <div class="col-md-4 form-group">
+              <input [(ngModel)]="consultation.email" #email="ngModel" type="email" class="form-control" name="email"
+                id="userEmail" placeholder="Your Email" required>
+              <div class="validate" *ngIf="email.dirty && email.invalid">Please enter a valid email</div>
+            </div>
+            <div class="col-md-4 form-group">
+              <input [(ngModel)]="consultation.phone" #phone="ngModel" type="tel" class="form-control" name="phone"
+                id="phone" placeholder="Your Phone" minlength="10" required>
+              <div class="validate" *ngIf="phone.dirty && phone.invalid">Please enter a valid phone number</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-4 form-group">
+              <select [(ngModel)]="consultation.service" #service="ngModel" name="service" id="service"
+                class="form-control" required>
+                <option  value="" disabled selected>Select Service</option>
+                <option value="PPE">PPE Supply Solutions</option>
+                <option value="Telemedicine">Telemedicine</option>
+                <option value="Research and Development">Research and Development</option>
+                <option value="Vaccination">Vaccination</option>
+                <option value="Medical Equipment">Medical Equipment</option>
+                <option value="Accesibility">Accesibility</option>
+              </select>
+              <div class="validate" *ngIf="service.dirty && service.invalid">Please select a service</div>
+            </div>
+            <div class="form-group col-md-4">
+              <select [(ngModel)]="consultation.method" #method="ngModel" name="method" id="method" class="form-control"
+                required>
+                <option  value="" disabled selected>Consultation Method</option>
+                <option value="phone">Phone</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="zoom">Zoom</option>
+                <option value="skype">Skype</option>
+                <option value="facetime">Facetime</option>
+              </select>
+              <div class="validate" *ngIf="method.dirty && method.invalid">Please select a communication method</div>
+            </div>
+            <div class="col-md-4 form-group">
+              <button class="btn btn-success btn-block" style="padding-bottom: .75em;"
+                (click)="openSchedulerModal(schedulerTemplate)">Choose Time and Date <i
+                  class="icon icofont-calendar"></i></button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <textarea [(ngModel)]="consultation.message" #message="ngModel" class="form-control" name="message" rows="5"
+              placeholder="Message (Optional)" maxLength="150"></textarea>
+          </div>
+          <div class="mb-3">
+            <div class="loading" *ngIf="loaders.consultation">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your consultation request has been sent successfully. Thank you!</div>
+          </div>
+          <div class="text-center"><button
+              [disabled]="!consultationForm.valid || !consultation.date" type="button"
+              (click)="addConsultation(consultationForm, consultation)">Submit Request</button></div>
+        </form>
+
+      </div>
+    </section><!-- End Consultation Section -->
+
+    <!-- ======= Products Section ======= -->
+    <section id="products" class="section products">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Products</h2>
+          <p>Our pride and joy comes from the products we help supply, and the difference that they make. Although we don
+            not manufacture them ourselves, we directly represent a number of manufacturers and distributors that make the
+            highest quality products.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item" *ngFor="let tab of products">
+                <p class="nav-link show" (click)="selectTab(tab.idx)" [ngClass]="selectedTab === tab.idx ? 'active':''">
+                  {{tab.title}}</p>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+              <div class="tab-pane show" *ngFor="let pane of products" [id]="pane.idx"
+                [ngClass]="selectedTab === pane.idx ? 'active':''">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>{{pane.title}}</h3>
+                    <div [innerHtml]="pane.subtitle | safeHtml" class="mb-3"></div>
+                    <div [innerHTML]="pane.description | safeHtml"></div>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img [src]="pane.img.src" [alt]="pane.img.title" class="img-fluid">
+                  </div>
                 </div>
               </div>
             </div>
-          </div><!-- End .content-->
-        </div>
-      </div>
-
-    </div>
-  </section><!-- End Why Us Section -->
-
-  <!-- ======= About Section ======= -->
-  <section id="about" class="about">
-    <div class="container-fluid">
-
-      <div class="row">
-        <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch">
-          <button class="play-btn mb-4" (click)="openLightbox()"></button>
-        </div>
-
-        <div
-          class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
-          <h3>COVID-19 Crisis Response and Premium Medical Supply Solutions</h3>
-          <p>The global coronavirus outbreak has tested people, industries, governments and supply chains unlike any
-            crisis since
-            World War II. Manufacturers and suppliers of personal protective equipment (PPE) have been working overtime
-            to increase
-            production in response to unprecedented international demand.</p>
-
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-clinic"></i></div>
-            <h4 class="title"><a href="">Priority Customers</a></h4>
-            <p class="description">We offer wholesale prices to hospitals and clinics purchasing the desperately needed
-              medical supplies.</p>
-          </div>
-
-          <div class="icon-box">
-            <div class="icon"><i class="bx bxs-truck"></i></div>
-            <h4 class="title"><a href="">Logistics</a></h4>
-            <p class="description">Delivery is always included in final pricing, with many options to choose from. We
-              can handle it all.</p>
-          </div>
-
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-rocket"></i></div>
-            <h4 class="title"><a href="">Expedited Service</a></h4>
-            <p class="description">Our streamlined procedures save time, and dispatch your products accurately.</p>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section><!-- End About Section -->
-
-  <!-- ======= Counts Section ======= -->
-  <section id="counts" class="counts">
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col-lg-3 col-md-6" *ngFor="let count of counter">
-          <div class="count-box" data-aos="fade-up">
-            <i [ngClass]="'icofont-' + count.icon"></i>
-            <span [countUp]="count.countUp" [options]="countUpOptions"></span>
-            <p>{{count.title}}</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section><!-- End Counts Section -->
-
-  <!-- ======= Services Section ======= -->
-  <section id="services" class="services">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Services</h2>
-        <p>Medical Supply is something we have focused on since the pandemic began. However, we provide many other
-          services in the medical and healthcare industries.</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" *ngFor="let service of services">
-          <div class="icon-box">
-            <div class="icon"><i [class]="'icofont-' + service.icon"></i></div>
-            <h4><a href="">{{service.title}}</a></h4>
-            <p>{{service.description}}</p>
           </div>
         </div>
 
       </div>
+    </section><!-- End Products Section -->
 
-    </div>
-  </section><!-- End Services Section -->
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="section team">
+      <div class="container">
 
-  <!-- ======= Consultation Section ======= -->
-  <section id="consultation" class="consultation section-bg">
-    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Team</h2>
+          <p>Medtelplus is a small medical and healthcare supply and solutions company, consisting mainly of it's founders and support staff.</p>
+        </div>
 
-      <div class="section-title">
-        <h2>Free Consultation</h2>
-        <p>Request a free consultation by phone or video conference with our dedicated sales team to discuss your needs
-          and the advantages in using our products and services. Fill out the form below, and be sure to select a
-          preferred time of day for the consultation. <small class="font-italic">**Consultation times are first come
-            first serve, and subject to change.**</small></p>
+        <div class="row">
+          <div class="col-lg-6" *ngFor="let member of team; let i = index;">
+            <div class="member d-flex align-items-start" [style.transition-delay]="i * 100 + 'ms'" data-aos="fade-up">
+              <div class="pic"><img [src]="member.imgSrc" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>{{member.name}}</h4>
+                <span>{{member.title}}</span>
+                <p>{{member.bio.short}}</p>
+                <div class="social">
+                  <a [href]="member.socialLinks?.twitter" target="_blank"><i class="ri-twitter-fill"></i></a>
+                  <a [href]="member.socialLinks?.facebook" target="_blank"><i class="ri-facebook-fill"></i></a>
+                  <a [href]="member.socialLinks?.instagram" target="_blank"><i class="ri-instagram-fill"></i></a>
+                  <a [href]="member.socialLinks?.linkedin" target="_blank"> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
+    </section><!-- End Team Section -->
 
-      <form #consultationForm="ngForm" name="consultationForm" role="form" class="request-form">
-        <div class="form-row">
-          <div class="col-md-4 form-group">
-            <input [(ngModel)]="consultation.name" #name="ngModel" type="text" name="name" class="form-control"
-              id="userName" placeholder="Your Name" minlength="4" required>
-            <div class="validate" *ngIf="name.dirty && name.invalid">Please enter at least 4 chars</div>
-          </div>
-          <div class="col-md-4 form-group">
-            <input [(ngModel)]="consultation.email" #email="ngModel" type="email" class="form-control" name="email"
-              id="userEmail" placeholder="Your Email" required>
-            <div class="validate" *ngIf="email.dirty && email.invalid">Please enter a valid email</div>
-          </div>
-          <div class="col-md-4 form-group">
-            <input [(ngModel)]="consultation.phone" #phone="ngModel" type="tel" class="form-control" name="phone"
-              id="phone" placeholder="Your Phone" minlength="10" required>
-            <div class="validate" *ngIf="phone.dirty && phone.invalid">Please enter a valid phone number</div>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="col-md-4 form-group">
-            <select [(ngModel)]="consultation.service" #service="ngModel" name="service" id="service"
-              class="form-control" required>
-              <option value="">Select Service</option>
-              <option value="PPE">PPE Supply Solutions</option>
-              <option value="Telemedicine">Telemedicine</option>
-              <option value="Research and Development">Research and Development</option>
-              <option value="Vaccination">Vaccination</option>
-              <option value="Medical Equipment">Medical Equipment</option>
-              <option value="Accesibility">Accesibility</option>
-            </select>
-            <div class="validate" *ngIf="service.dirty && service.invalid">Please select a service</div>
-          </div>
-          <div class="form-group col-md-4">
-            <select [(ngModel)]="consultation.method" #method="ngModel" name="method" id="method" class="form-control"
-              required>
-              <option value="">Consultation Method</option>
-              <option value="phone">Phone</option>
-              <option value="whatsapp">WhatsApp</option>
-              <option value="zoom">Zoom</option>
-              <option value="skype">Skype</option>
-              <option value="facetime">Facetime</option>
-            </select>
-            <div class="validate" *ngIf="method.dirty && method.invalid">Please select a communication method</div>
-          </div>
-          <div class="col-md-4 form-group">
-            <button class="btn btn-success btn-block" style="padding-bottom: .75em;"
-              (click)="openSchedulerModal(schedulerTemplate)">Choose Time and Date <i
-                class="icon icofont-calendar"></i></button>
-          </div>
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="section faq section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Frequently Asked Questions</h2>
+          <p>Have questions? Check our section on frequently asked questions below, or feel free to <a href="#contact">contact us</a> for more information.</p>
         </div>
 
-        <div class="form-group">
-          <textarea [(ngModel)]="consultation.message" #message="ngModel" class="form-control" name="message" rows="5"
-            placeholder="Message (Optional)" maxLength="150"></textarea>
-        </div>
-        <div class="mb-3">
-          <div class="loading" *ngIf="loaders.consultation">Loading</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Your consultation request has been sent successfully. Thank you!</div>
-        </div>
-        <div class="text-center"><button
-            [disabled]="!consultationForm.valid || !consultation.date" type="button"
-            (click)="addConsultation(consultationForm, consultation)">Submit Request</button></div>
-      </form>
-
-    </div>
-  </section><!-- End Consultation Section -->
-
-  <!-- ======= Products Section ======= -->
-  <section id="products" class="products">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Products</h2>
-        <p>Our pride and joy comes from the products we help supply, and the difference that they make. Although we don
-          not manufacture them ourselves, we directly represent a number of manufacturers and distributors that make the
-          highest quality products.</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-3">
-          <ul class="nav nav-tabs flex-column">
-            <li class="nav-item" *ngFor="let tab of products">
-              <p class="nav-link show" (click)="selectTab(tab.idx)" [ngClass]="selectedTab === tab.idx ? 'active':''">
-                {{tab.title}}</p>
+        <div class="faq-list">
+          <ul>
+            <li data-aos="fade-up" *ngFor="let q of faq; let i = index;" (click)="toggleFaq(i)">
+              <i class="bx bx-help-circle icon-help"></i> <span>{{q.title}} <i class="bx animate__animated" [ngClass]="selectedFaq===i ? 'bx-chevron-down icon-close':'bx-chevron-up icon-show'"></i></span>
+              <div id="faq-list-1" class="collapse" [ngClass]="selectedFaq === q.id ? 'show':''" data-parent=".faq-list">
+                <p>
+                  {{q.text}}
+                </p>
+              </div>
             </li>
           </ul>
         </div>
-        <div class="col-lg-9 mt-4 mt-lg-0">
-          <div class="tab-content">
-            <div class="tab-pane show" *ngFor="let pane of products" [id]="pane.idx"
-              [ngClass]="selectedTab === pane.idx ? 'active':''">
-              <div class="row">
-                <div class="col-lg-8 details order-2 order-lg-1">
-                  <h3>{{pane.title}}</h3>
-                  <div [innerHtml]="pane.subtitle | safeHtml" class="mb-3"></div>
-                  <div [innerHTML]="pane.description | safeHtml"></div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <!-- <section id="testimonials" class="testimonials">
+      <div class="container">
+
+        <div class="owl-carousel testimonials-carousel">
+
+          <div class="testimonial-wrap">
+            <div class="testimonial-item">
+              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+              <h3>Saul Goodman</h3>
+              <h4>Ceo &amp; Founder</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
+                quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+          <div class="testimonial-wrap">
+            <div class="testimonial-item">
+              <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+              <h3>Sara Wilsson</h3>
+              <h4>Designer</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
+                quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+          <div class="testimonial-wrap">
+            <div class="testimonial-item">
+              <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+              <h3>Jena Karlis</h3>
+              <h4>Store Owner</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor
+                labore quem eram duis noster aute amet eram fore quis sint minim.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+          <div class="testimonial-wrap">
+            <div class="testimonial-item">
+              <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+              <h3>Matt Brandon</h3>
+              <h4>Freelancer</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim
+                dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+          <div class="testimonial-wrap">
+            <div class="testimonial-item">
+              <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+              <h3>John Larson</h3>
+              <h4>Entrepreneur</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
+                labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section> -->
+    <!-- End Testimonials Section -->
+
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="section gallery">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Gallery</h2>
+          <p>We provide products and services for Federal and Local Governments, restaurants, grocery stores, and more. However, our focus of late has been hospitals, healthcare groups and clinics of every size.</p>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-4" *ngFor="let item of galleryItems; let i = index;" [style.transition-delay]="i * 100 + 'ms'" data-aos="fade-up">
+            <div class="gallery-item">
+              <a href="" class="venobox" data-gall="gallery-item">
+                <img [src]="item.src" [alt]="item.title" class="img-fluid">
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Gallery Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="section contact">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Contact</h2>
+          <p>Please feel free to contact us with any questions or conerns, and we would be more than happy to help. We believe that the first step of a great working relationship is clear communication.</p>
+        </div>
+      </div>
+
+      <div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3491.518121208995!2d-80.90479308448447!3d28.942353076740776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e72e0bc3db63bf%3A0xd37b18d3a40fdc69!2s3029%20Travelers%20Palm%20Dr%2C%20Edgewater%2C%20FL%2032141!5e0!3m2!1sen!2sus!4v1614740869326!5m2!1sen!2sus"
+          width="2200" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+
+      <div class="container">
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="icofont-google-map"></i>
+                <h4>Location:</h4>
+                <p>3029 TRAVELERS PALM DR.,
+                EDGEWATER,
+                32141</p>
+              </div>
+
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@medtelplus.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="icofont-phone"></i>
+                <h4>Call:</h4>
+                <p>+1 740405 1633 or 740 405 1586</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form #contactForm="ngForm" role="form" class="request-form">
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <input  [(ngModel)]="contactModel.name" #contactName="ngModel" type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                    data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
+                  <!-- <div class="validate"></div> -->
                 </div>
-                <div class="col-lg-4 text-center order-1 order-lg-2">
-                  <img [src]="pane.img.src" [alt]="pane.img.title" class="img-fluid">
+                <div class="col-md-6 form-group">
+                  <input [(ngModel)]="contactModel.email" #contactEmail="ngModel" type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                    data-rule="email" data-msg="Please enter a valid email" required/>
+                  <!-- <div class="validate"></div> -->
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section><!-- End Products Section -->
-
-  <!-- ======= Team Section ======= -->
-  <section id="team" class="team">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Team</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-          consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-          in iste officiis commodi quidem hic quas.</p>
-      </div>
-
-      <div class="row">
-
-        <div class="col-lg-6" *ngFor="let member of team">
-          <div class="member d-flex align-items-start">
-            <div class="pic"><img [src]="member.imgSrc" class="img-fluid" alt=""></div>
-            <div class="member-info">
-              <h4>{{member.name}}</h4>
-              <span>{{member.title}}</span>
-              <p>{{member.bio.short}}</p>
-              <div class="social">
-                <a [href]="member.socialLinks.twitter" target="_blank"><i class="ri-twitter-fill"></i></a>
-                <a [href]="member.socialLinks.facebook" target="_blank"><i class="ri-facebook-fill"></i></a>
-                <a [href]="member.socialLinks.instagram" target="_blank"><i class="ri-instagram-fill"></i></a>
-                <a [href]="member.socialLinks.linkedin" target="_blank"> <i class="ri-linkedin-box-fill"></i> </a>
+              <div class="form-group">
+                <input [(ngModel)]="contactModel.subject" #contactSubject="ngModel" type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                  data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" required/>
+                <!-- <div class="validate"></div> -->
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section><!-- End Team Section -->
-
-  <!-- ======= Frequently Asked Questions Section ======= -->
-  <section id="faq" class="faq section-bg">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Frequently Asked Questions</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-          consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-          in iste officiis commodi quidem hic quas.</p>
-      </div>
-
-      <div class="faq-list">
-        <ul>
-          <li data-aos="fade-up">
-            <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse"
-              href="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i
-                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-            <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
-              <p>
-                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur
-                gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-              </p>
-            </div>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="100">
-            <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-2"
-              class="collapsed">Feugiat scelerisque varius morbi enim nunc? <i
-                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-            <div id="faq-list-2" class="collapse" data-parent=".faq-list">
-              <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id
-                donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit
-                ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-              </p>
-            </div>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="200">
-            <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-3"
-              class="collapsed">Dolor sit amet consectetur adipiscing elit? <i
-                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-            <div id="faq-list-3" class="collapse" data-parent=".faq-list">
-              <p>
-                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum
-                integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt.
-                Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-              </p>
-            </div>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="300">
-            <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-4"
-              class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i
-                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-            <div id="faq-list-4" class="collapse" data-parent=".faq-list">
-              <p>
-                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc
-                vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus
-                gravida quis blandit turpis cursus in.
-              </p>
-            </div>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="400">
-            <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-5"
-              class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem
-              dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-            <div id="faq-list-5" class="collapse" data-parent=".faq-list">
-              <p>
-                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada
-                nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis
-                tellus in metus vulputate eu scelerisque.
-              </p>
-            </div>
-          </li>
-
-        </ul>
-      </div>
-
-    </div>
-  </section><!-- End Frequently Asked Questions Section -->
-
-  <!-- ======= Testimonials Section ======= -->
-  <section id="testimonials" class="testimonials">
-    <div class="container">
-
-      <div class="owl-carousel testimonials-carousel">
-
-        <div class="testimonial-wrap">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-            <h3>Saul Goodman</h3>
-            <h4>Ceo &amp; Founder</h4>
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
-              quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-          </div>
-        </div>
-
-        <div class="testimonial-wrap">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-            <h3>Sara Wilsson</h3>
-            <h4>Designer</h4>
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
-              quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-          </div>
-        </div>
-
-        <div class="testimonial-wrap">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-            <h3>Jena Karlis</h3>
-            <h4>Store Owner</h4>
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor
-              labore quem eram duis noster aute amet eram fore quis sint minim.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-          </div>
-        </div>
-
-        <div class="testimonial-wrap">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-            <h3>Matt Brandon</h3>
-            <h4>Freelancer</h4>
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim
-              dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-          </div>
-        </div>
-
-        <div class="testimonial-wrap">
-          <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-            <h3>John Larson</h3>
-            <h4>Entrepreneur</h4>
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
-              labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Testimonials Section -->
-
-  <!-- ======= Gallery Section ======= -->
-  <section id="gallery" class="gallery">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Gallery</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-          consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-          in iste officiis commodi quidem hic quas.</p>
-      </div>
-    </div>
-
-    <div class="container-fluid">
-      <div class="row no-gutters">
-
-        <div class="col-lg-3 col-md-4">
-          <div class="gallery-item">
-            <a href="assets/img/gallery/gallery-1.jpg" class="venobox" data-gall="gallery-item">
-              <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="gallery-item">
-            <a href="assets/img/gallery/gallery-2.jpg" class="venobox" data-gall="gallery-item">
-              <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="gallery-item">
-            <a href="assets/img/gallery/gallery-3.jpg" class="venobox" data-gall="gallery-item">
-              <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="gallery-item">
-            <a href="assets/img/gallery/gallery-4.jpg" class="venobox" data-gall="gallery-item">
-              <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="gallery-item">
-            <a href="assets/img/gallery/gallery-5.jpg" class="venobox" data-gall="gallery-item">
-              <img src="assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="gallery-item">
-            <a href="assets/img/gallery/gallery-6.jpg" class="venobox" data-gall="gallery-item">
-              <img src="assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="gallery-item">
-            <a href="assets/img/gallery/gallery-7.jpg" class="venobox" data-gall="gallery-item">
-              <img src="assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="gallery-item">
-            <a href="assets/img/gallery/gallery-8.jpg" class="venobox" data-gall="gallery-item">
-              <img src="assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Gallery Section -->
-
-  <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-          consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-          in iste officiis commodi quidem hic quas.</p>
-      </div>
-    </div>
-
-    <div>
-      <iframe style="border:0; width: 100%; height: 350px;"
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
-        frameborder="0" allowfullscreen></iframe>
-    </div>
-
-    <div class="container">
-      <div class="row mt-5">
-
-        <div class="col-lg-4">
-          <div class="info">
-            <div class="address">
-              <i class="icofont-google-map"></i>
-              <h4>Location:</h4>
-              <p>A108 Adam Street, New York, NY 535022</p>
-            </div>
-
-            <div class="email">
-              <i class="icofont-envelope"></i>
-              <h4>Email:</h4>
-              <p>info@example.com</p>
-            </div>
-
-            <div class="phone">
-              <i class="icofont-phone"></i>
-              <h4>Call:</h4>
-              <p>+1 5589 55488 55s</p>
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="col-lg-8 mt-5 mt-lg-0">
-
-          <form #contactForm="ngForm" role="form" class="request-form">
-            <div class="form-row">
-              <div class="col-md-6 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                  data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validate"></div>
+              <div class="form-group">
+                <textarea [(ngModel)]="contactModel.message" #contactMessage="ngModel" class="form-control" name="message" rows="5" data-rule="required"
+                  data-msg="Please write something for us" placeholder="Message" required></textarea>
+                <!-- <div class="validate"></div> -->
               </div>
-              <div class="col-md-6 form-group">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                  data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validate"></div>
+              <div class="mb-3">
+                <div class="loading" *ngIf="loaders.contact">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-              <div class="validate"></div>
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required"
-                data-msg="Please write something for us" placeholder="Message"></textarea>
-              <div class="validate"></div>
-            </div>
-            <div class="mb-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
-            <div class="text-center"><button type="button" (click)="addContact(contactForm.value)">Send Message</button>
-            </div>
-          </form>
+              <div class="text-center"><button type="button" (click)="addContact(contactForm, contactModel)" [disabled]="contactForm.invalid">Send Message</button>
+              </div>
+            </form>
+
+          </div>
 
         </div>
 
       </div>
-
-    </div>
-  </section><!-- End Contact Section -->
-
-</main><!-- End Main -->
+    </section><!-- End Contact Section -->
+</main>
 
 <!-- ======= Modals ======= -->
 <ng-template #schedulerTemplate>
@@ -650,7 +588,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body px-0 pb-5">
+  <div class="modal-body px-0">
     <div class="rounded-list">
       <ol>
         <li>
@@ -671,7 +609,89 @@
           <!-- <div class="validate" *ngIf="date.dirty && date.invalid">Please enter a preferred date</div> -->
         </div>
 
+        <div [hidden]="consultation.date">
+          <div class="animated-bg"></div>
+          <div class="animated-bg animated-bg2"></div>
+          <div class="animated-bg animated-bg3"></div>
+        </div>
+
       </div>
+    </div>
+    <div [hidden]="consultation.date" style="width: 100%; height: auto; margin-top: 150px;">
+      <svg id="wrap" width="300" height="300">
+        <!-- background -->
+        <svg>
+          <circle cx="150" cy="150" r="130" style="stroke: lightblue; stroke-width:18; fill:transparent" />
+          <circle cx="150" cy="150" r="115" style="fill:#007bff" />
+          <path style="stroke: #007bff; stroke-dasharray:820; stroke-dashoffset:820; stroke-width:18; fill:transparent"
+            d="M150,150 m0,-130 a 130,130 0 0,1 0,260 a 130,130 0 0,1 0,-260">
+            <animate attributeName="stroke-dashoffset" dur="6s" to="-820" repeatCount="indefinite" />
+          </path>
+        </svg>
+
+        <!-- image -->
+        <svg>
+          <path id="hourglass" d="M150,150 C60,85 240,85 150,150 C60,215 240,215 150,150 Z"
+            style="stroke: white; stroke-width:5; fill:white;" />
+
+          <path id="frame"
+            d="M100,97 L200, 97 M100,203 L200,203 M110,97 L110,142 M110,158 L110,200 M190,97 L190,142 M190,158 L190,200 M110,150 L110,150 M190,150 L190,150"
+            style="stroke:lightblue; stroke-width:6; stroke-linecap:round" />
+
+          <animateTransform xlink:href="#frame" attributeName="transform" type="rotate" begin="0s" dur="3s"
+            values="0 150 150; 0 150 150; 180 150 150" keyTimes="0; 0.8; 1" repeatCount="indefinite" />
+          <animateTransform xlink:href="#hourglass" attributeName="transform" type="rotate" begin="0s" dur="3s"
+            values="0 150 150; 0 150 150; 180 150 150" keyTimes="0; 0.8; 1" repeatCount="indefinite" />
+        </svg>
+
+        <!-- sand -->
+        <svg>
+          <!-- upper part -->
+          <polygon id="upper" points="120,125 180,125 150,147" style="fill:#007bff;">
+            <animate attributeName="points" dur="3s" keyTimes="0; 0.8; 1"
+              values="120,125 180,125 150,147; 150,150 150,150 150,150; 150,150 150,150 150,150" repeatCount="indefinite" />
+          </polygon>
+
+          <!-- falling sand -->
+          <path id="line" stroke-linecap="round" stroke-dasharray="1,4" stroke-dashoffset="200.00" stroke="#007bff"
+            stroke-width="2" d="M150,150 L150,198">
+            <!-- running sand -->
+            <animate attributeName="stroke-dashoffset" dur="3s" to="1.00" repeatCount="indefinite" />
+            <!-- emptied upper -->
+            <animate attributeName="d" dur="3s" to="M150,195 L150,195"
+              values="M150,150 L150,198; M150,150 L150,198; M150,198 L150,198; M150,195 L150,195" keyTimes="0; 0.65; 0.9; 1"
+              repeatCount="indefinite" />
+            <!-- last drop -->
+            <animate attributeName="stroke" dur="3s" keyTimes="0; 0.65; 0.8; 1"
+              values="#2c3e50;#2c3e50;transparent;transparent" to="transparent" repeatCount="indefinite" />
+          </path>
+
+          <!-- lower part -->
+          <g id="lower">
+            <path d="M150,180 L180,190 A28,10 0 1,1 120,190 L150,180 Z"
+              style="stroke: transparent; stroke-width:5; fill:#007bff;">
+              <animateTransform attributeName="transform" type="translate" keyTimes="0; 0.65; 1" values="0 15; 0 0; 0 0"
+                dur="3s" repeatCount="indefinite" />
+            </path>
+            <animateTransform xlink:href="#lower" attributeName="transform" type="rotate" begin="0s" dur="3s"
+              values="0 150 150; 0 150 150; 180 150 150" keyTimes="0; 0.8; 1" repeatCount="indefinite" />
+          </g>
+
+          <!-- lower overlay - hourglass -->
+          <path d="M150,150 C60,85 240,85 150,150 C60,215 240,215 150,150 Z"
+            style="stroke: white; stroke-width:5; fill:transparent;">
+            <animateTransform attributeName="transform" type="rotate" begin="0s" dur="3s"
+              values="0 150 150; 0 150 150; 180 150 150" keyTimes="0; 0.8; 1" repeatCount="indefinite" />
+          </path>
+
+          <!-- lower overlay - frame -->
+          <path id="frame" d="M100,97 L200, 97 M100,203 L200,203"
+            style="stroke:lightblue; stroke-width:6; stroke-linecap:round">
+            <animateTransform attributeName="transform" type="rotate" begin="0s" dur="3s"
+              values="0 150 150; 0 150 150; 180 150 150" keyTimes="0; 0.8; 1" repeatCount="indefinite" />
+          </path>
+        </svg>
+      </svg>
     </div>
     <div class="container" *ngIf="consultation.date">
       <div class="row">
@@ -683,10 +703,64 @@
       </div>
     </div>
   </div>
-  <div class="modal-footer pb-3 fixed-bottom bg-white">
-    <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Cancel</button><button type="button"
-      class="btn btn-success" [disabled]="!consultation.date || !consultation.block" (click)="modalRef.hide()">Done
-      <span class="icon-box"><i class="icofont-check"></i></span></button>
+  <div class="modal-footer pb-3 bg-white">
+    <div class="container">
+      <div class="row ml-lg-auto my-md-auto justify-content-end">
+        <button type="button" class="mr-3 btn btn-secondary" (click)="modalRef.hide()">Cancel</button><button type="button"
+          class="mr-3 btn btn-success" [disabled]="!consultation.date || !consultation.block" (click)="modalRef.hide()">Done
+          <span class="icon-box"><i class="icofont-check"></i></span></button>
+
+      </div>
+    </div>
   </div>
 </ng-template>
+
+<ng-template #freeConsultationTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title">Get a <b>FREE</b> Quote</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body bg-primary p-0">
+    <div class="onload-consultation-modal-body p-3 text-light">
+      <div class="container">
+        <div class="row">
+          <p>Looking for PPE? Schedule your <b> &nbsp;FREE</b> consultation today. Takes seconds to pick your
+          prefered day, then select an available time.</p>
+        </div>
+        <div class="row">
+          <img width="100" height="100" class="img-thumbnail col-4" src="assets/img/products/nitrile_gloves_w_600,h_600.jpg" alt="Consultation Modal Image">
+          <img width="100" height="100" class="img-thumbnail col-4"
+          src="assets/img/products/kn95_mask_w_600,h_600.jpg" alt="Consultation Modal Image">
+          <img width="100" height="100" class="img-thumbnail col-4"
+          src="assets/img/products/ppe_kit_w_600,h_600.jpg" alt="Consultation Modal Image">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#consultation" role="button" class="btn btn-primary w-25" (click)="modalRef.hide()">Yes!</a>
+    <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">No.</button>
+  </div>
+</ng-template>
+
 <!-- End Modals -->
+
+<!-- Start Mobile Nav -->
+<nav class="mobile-nav d-lg-none" *ngIf="showMobileNav">
+  <ul>
+    <li (click)="toggleMobileNav()"><a href="#home">Home</a></li>
+    <li (click)="toggleMobileNav()"><a href="#about">About</a></li>
+    <li (click)="toggleMobileNav()"><a href="#services">Services</a></li>
+    <li (click)="toggleMobileNav()"><a href="#consultation">Consultation</a></li>
+    <li (click)="toggleMobileNav()"><a href="#products">Products</a></li>
+    <li (click)="toggleMobileNav()"><a href="#team">Team</a></li>
+    <li (click)="toggleMobileNav()"><a href="#faq">FAQ</a></li>
+    <li (click)="toggleMobileNav()"><a href="#gallery">Gallery</a></li>
+    <li (click)="toggleMobileNav()"><a href="#contact">Contact</a></li>
+
+  </ul>
+</nav>
+<div class="mobile-nav-overly" [hidden]="!showMobileNav" (click)="toggleMobileNav()"></div>
+<!-- End Mobile Nav -->

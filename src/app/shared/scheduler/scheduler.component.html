@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container pb-md-0">
   <div class="row">
-    <div class="col-md-4 animate_animated" *ngFor="let block of blocksDefaults" data-aos="fade-up">
+    <div class="col-md-4 animate_animated" *ngFor="let block of blocksDefaults;let last = last;" data-aos="fade-up">
       <div class="card-header border-0">
         <h4 class="card-title"><span class="icon-box"></span><i class="icofont-clock-time"></i> {{block.time}}</h4>
       </div>

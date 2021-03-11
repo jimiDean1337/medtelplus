@@ -1,19 +1,21 @@
-import { Component, ElementRef, OnInit, TemplateRef } from '@angular/core';
+import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Gallery, ImageSize, ThumbnailsPosition } from 'ng-gallery';
-import { Lightbox } from 'ng-gallery/lightbox';
+import { Lightbox, LightboxConfig } from 'ng-gallery/lightbox';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { DataService } from 'src/app/core/services/data.service';
 import { ConsultationData } from 'src/app/interfaces/consultation.interface';
-import { COUNTER, PRODUCTS, SERVICES, TEAM } from 'src/app/shared/global.model';
-
+import { COUNTER, FAQ, GALLERYITEMS, PRODUCTS, SERVICES, TEAM } from 'src/app/shared/global.model';
 @Component({
   selector: 'mtp-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  @ViewChild('freeConsultationTemplate', { static: true }) freeConsultationTemplate: TemplateRef<any>;
   title = 'Medtelplus';
   modalRef: BsModalRef;
   loaders = {
@@ -22,84 +24,123 @@ export class HomeComponent implements OnInit {
     contact: false,
   }
   galleryId = 'home';
+  showMobileNav: boolean = false;
+
+  navLinks = [
+    { name: 'About', link: 'about' },
+    { name: 'Service', link: 'services' },
+    { name: 'Consultation', link: 'consultation' },
+    { name: 'Products', link: 'products' },
+    { name: 'Team', link: 'team' },
+    { name: 'FAQ', link: 'faq' },
+    { name: 'Gallery', link: 'gallery' },
+    { name: 'Contact', link: 'contact' },
+  ]
   countUpOptions = {
     startVal: 0,
     duration: 3,
   }
   selectedTab = 0;
+  selectedFaq = 0;
   products = PRODUCTS;
   services = SERVICES;
   counter = COUNTER;
   team = TEAM;
-  contactModel = {};
-  consultation: ConsultationData = {
-    name: '',
-    email: '',
-    phone: '',
-    date: '',
-    block: null,
-    time: '',
-    service: '',
-    method: '',
-    message: '',
-    verified: false,
-    verificationId: null
-  };
+  faq = FAQ;
+
+  galleryItems = GALLERYITEMS;
+  contactModel: any = {};
+  consultation: ConsultationData = {};
+
+  testimonyCarouselOptions: OwlOptions;
 
   datePickerConfig: Partial<BsDatepickerConfig>;
-  constructor(private gallery: Gallery, private lightbox: Lightbox, private dataService: DataService, private modalService: BsModalService) { }
+  constructor(private router: Router, private route: ActivatedRoute,  private gallery: Gallery, private lightbox: Lightbox, private dataService: DataService, private modalService: BsModalService) { }
 
-  openLightbox(index = 0) {
-    this.lightbox.open(index, this.galleryId, { panelClass: '' });
+  addConsultation(form: NgForm, data: any) {
+    console.log("addConsultation ~ data", form, data);
+    data.verificationId = Math.floor(Math.random() * Date.now());
+    data.verified = false;
+    this.loaders.consultation = true;
+    this.dataService.addConsultation(data).then(res => {
+      this.loaders.consultation = false;
+      form.reset();
+    });
+    // TODO: Remove available blocks that are past current time
+    // TODO: Check if consultation already exists under user email
+  }
+
+  addContact(form: NgForm, data: any) {
+    console.log("addContact ~ data", data);
+    this.loaders.contact = true;
+    this.dataService.addContact(data).then(res => {
+      this.loaders.consultation = false;
+      form.reset();
+    });
+  }
+
+  addSubscriber(data: { email: string }) {
+    this.dataService.addSubscriber(data);
+  }
+
+  formatDate(date) {
+    this.consultation.date = null;
+    setTimeout(() => {
+      if (date) {
+        console.log('date to format',date)
+        this.consultation.date = `${date.getMonth() + 1}/${date.getDate()}`
+      }
+    }, 500)
+  }
+
+  goToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
+  openLightbox(index = 0, lightboxConfig?: LightboxConfig) {
+    this.lightbox.open(index, this.galleryId, { ...lightboxConfig });
   }
 
   openSchedulerModal(content: TemplateRef<any>, data?: any) {
     this.modalRef = this.modalService.show(content, {
-      class: 'modal-xl consultation-modal'
+      id: 0,
+      class: 'modal-xl consultation-modal',
     });
   }
 
-  addConsultation(form: NgForm, data: any) {
-    console.log("addConsultation ~ data", form, data);
-    // data.date = `${data.date.getMonth() + 1}-${data.date.getDate()}`;
-    data.verificationId = Math.floor(Math.random() * Date.now())
-    this.dataService.addConsultation(data);
-    this.consultation = {
-      name: '',
-      email: '',
-      phone: '',
-      date: '',
-      block: null,
-      time: '',
-      service: '',
-      method: '',
-      message: '',
-      verificationId: null,
-      verified: false
-    };
+  openOnLoadModal(content) {
+    this.modalRef = this.modalService.show(content, {
+      class: 'onload-consultation-modal',
+      id: 1,
+    })
   }
 
-  addContact(data: any) {
-    console.log("addContact ~ data", data);
-    this.dataService.addContact(data);
+  toggleMobileNav() {
+    this.showMobileNav = !this.showMobileNav;
   }
 
-  formatDate(date) {
-    if (date) {
-      console.log('date to format',date)
-      this.consultation.date = `${date.getMonth() + 1}/${date.getDate()}`
-    }
-  }
+  // private runConsultationChecks(date, time, email) {
+
+  // }
+
 
   ngOnInit() {
+    setTimeout(() => {
+      this.openOnLoadModal(this.freeConsultationTemplate);
+    }, 5000)
     const galleryRef = this.gallery.ref('home', {
       autoPlay: true,
-      disableThumb: true,
+      loadingStrategy: 'lazy',
       imageSize: ImageSize.Cover,
       thumbPosition: ThumbnailsPosition.Bottom,
       // itemTemplate: this.itemTemplate,
-      gestures: false
+      gestures: true
     });
+
+
 
     this.datePickerConfig = Object.assign({}, {
       containerClass: 'theme-dark-blue',
@@ -110,7 +151,31 @@ export class HomeComponent implements OnInit {
       daysDisabled: [6, 0],
       showWeekNumbers: false,
       minDate: new Date()
-    })
+    });
+    // this.testimonyCarouselOptions = {
+    //   loop: true,
+    //   mouseDrag: false,
+    //   touchDrag: false,
+    //   pullDrag: false,
+    //   dots: false,
+    //   navSpeed: 700,
+    //   navText: ['', ''],
+    //   responsive: {
+    //     0: {
+    //       items: 1
+    //     },
+    //     400: {
+    //       items: 2
+    //     },
+    //     740: {
+    //       items: 3
+    //     },
+    //     940: {
+    //       items: 4
+    //     }
+    //   },
+    //   nav: true
+    // }
 
     galleryRef.addYoutube({ src: 'ukut6cPY78k' });
 
@@ -118,6 +183,10 @@ export class HomeComponent implements OnInit {
 
   selectTab(idx: number) {
     this.selectedTab = idx;
+  }
+
+  toggleFaq(idx: number) {
+    this.selectedFaq = idx;
   }
 
 }

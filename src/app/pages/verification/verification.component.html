@@ -1,1 +1,20 @@
-<p>verification works!</p>
+<div class="jumbotron text-center bg-transparent">
+  <h5 class="display-4">Thank You, {{user?.name}}!</h5>
+  <p class="lead"><strong>Please remember, </strong> add your consultation date and time to your calander.</p>
+  <hr>
+  <p>
+    Having trouble? <a href="#contact">Contact us</a>
+  </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-sm" routerLink="../../home" role="button">Continue to homepage</a>
+  </p>
+</div>
+<section id="verified-featured">
+  <div class="container">
+    <div class="row">
+      <h3 class="p-3 text-center">Check out some of our featured products</h3>
+    </div>
+  </div>
+  <mtp-featured></mtp-featured>
+</section>
+
